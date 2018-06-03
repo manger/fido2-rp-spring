@@ -116,8 +116,8 @@ class CommonVerifiers {
         }
     }
 
-    void verifyCounter(int counter, int oldCounter) {
-        if(oldCounter < counter) {
+    void verifyCounter(int oldCounter, int newCounter) {
+        if(newCounter <= oldCounter) {
             throw new RuntimeException("Counter did not increase");
         }
 
