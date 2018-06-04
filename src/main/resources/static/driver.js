@@ -524,7 +524,7 @@ function processRegisterForm(e) {
 //    let rpid = window.location.origin
     let rpid = document.domain;
     let formBody = {"username": $("#username").val(),"displayName":"dawid","documentDomain":rpid};
-    fetch('/webauthn/register', {
+    fetch('webauthn/register', {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -618,7 +618,7 @@ function processRegisterForm(e) {
         state.createRequest.user.id = base64url.encode(state.createRequest.user.id);
 
         var response = {"request":state.createRequest,"response":publicKeyCredentialToJSON(state.createResponse)};
-        fetch('/webauthn/register', {
+        fetch('webauthn/register', {
             method: 'PATCH',
             credentials: 'include',
             headers: {
@@ -656,7 +656,7 @@ function processLoginForm(e) {
     let rpid = document.domain;
     let formBody = {"username": $("#loginUsername").val(), "documentDomain":rpid};
 
-    fetch('/webauthn/authenticate', {
+    fetch('webauthn/authenticate', {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -755,7 +755,7 @@ function processLoginForm(e) {
         state.createRequest.challenge = base64url.encode(state.createRequest.challenge);
 
         var response = {"request":state.createRequest,"response":publicKeyCredentialToJSON(state.assertion)};
-        fetch('/webauthn/authenticate', {
+        fetch('webauthn/authenticate', {
             method: 'PATCH',
             credentials: 'include',
             headers: {
